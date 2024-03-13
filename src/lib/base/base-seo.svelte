@@ -1,11 +1,11 @@
 <script lang="ts">
 	// use set_seo from seo store to set for title , description and keywords
 	// on any page that need to update SEO just set_seo onMount
-	import { seo_description, seo_keywords, seo_title } from '$lib/stores/seo-store';
+	import { seo_description, seo_keywords, seo_title } from '$lib/stores/seo-store'
 
 	const base = {
-		desc: 'Discover the vibrant culture and rich traditions of Vietnam’s highlands with our travel agency. Experience the lifestyle of the minority people, participate in their customs, and explore breathtaking landscapes. Join us for sustainable and responsible tourism',
-		keys: 'Vietnam Travel Agency, Highlands Tour, Minority People Lifestyle, Cultural Immersion, Traditional Ceremonies, Sustainable Tourism, Responsible Tourism, Scenic Hikes, Ethnic Minorities, Local Folklore, Breathtaking Landscapes, Vietnam Highlands, Rural Life Experience'
+		desc: '',
+		keys: ''
 	};
 </script>
 
