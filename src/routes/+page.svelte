@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { BaseIcon } from '$lib/base'
+	import { format_money_input, years_from_3_to_6, years_up_to_3 } from '$lib/utils'
+
+	let selected_year: string
+	let price = ''
+
+	$: price = format_money_input(price)
 </script>
 
 <div class="grid h-screen w-screen place-content-center bg-slate-500">
@@ -7,11 +12,20 @@
 		<h1 class="text-center">TÍNH PHÍ XE PVI</h1>
 		<section class="flex justify-between gap-2">
 			<p>Giá trị xe:</p>
-			<input type="text" />
+			<input
+				bind:value={price}
+				type="text"
+				class="w-36 bg-slate-400 px-2 text-right" />
 		</section>
 		<section class="flex justify-between gap-2">
 			<p>Năm sản xuất:</p>
-			<input type="text" />
+			<select
+				class="w-36 bg-slate-400 px-2 text-right"
+				bind:value={selected_year}>
+				{#each years_from_3_to_6() as year (year)}
+					<option>{year}</option>
+				{/each}
+			</select>
 		</section>
 		<div class="flex flex-col gap-2">
 			<section class="flex flex-col">
@@ -25,7 +39,8 @@
 					<input
 						type="radio"
 						id="option1"
-						name="options" />
+						name="options"
+						checked />
 					<label for="option1">03, 06, 07, 08</label>
 				</div>
 				<div class="flex items-center gap-2">
