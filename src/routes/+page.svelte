@@ -1,12 +1,23 @@
 <script lang="ts">
-	import { CURRENT_YEAR, format_money_input, get_quotation, years_from_3_to_6 } from '$lib/utils'
+	import {
+		CURRENT_YEAR,
+		format_money_input,
+		format_result_output,
+		get_all_prices,
+		is_car_value_enough,
+		years_from_3_to_6,
+	} from '$lib/utils'
 
 	let selected_year: string
-	let price = ''
+	let car_value = ''
 	let dkbs: 'r678' | 'r3678' = 'r3678'
 
-	$: price = format_money_input(price)
-	$: final_quote = get_quotation(price, selected_year, dkbs)
+	$: car_value = format_money_input(car_value)
+	$: is_price_ok = is_car_value_enough(car_value)
+	$: all_prices = get_all_prices(car_value, selected_year, dkbs)
+	$: normal_price = all_prices && format_result_output(all_prices.normal_price)
+	$: discount_value = all_prices && format_result_output(all_prices.discount_value)
+	$: client_price = all_prices && format_result_output(all_prices.client_price)
 </script>
 
 <div class="grid h-screen w-screen place-content-center bg-slate-500">
@@ -16,7 +27,7 @@
 		<section class="flex justify-between gap-2">
 			<p>Giá trị xe:</p>
 			<input
-				bind:value={price}
+				bind:value={car_value}
 				type="text"
 				class="w-36 bg-slate-400 px-2 text-right" />
 		</section>
@@ -55,6 +66,26 @@
 				</div>
 			</section>
 		</div>
-		<p class="h-8 text-center text-2xl font-bold text-orange-400">{final_quote}</p>
+		{#if !is_price_ok}
+			<span class="flex justify-between">
+				<p>Giá xe tối thiểu :</p>
+				<p class="h-8 text-center font-bold text-orange-400">700,000,000 VNĐ</p>
+			</span>
+		{:else}
+			<div class="flex flex-col gap-1">
+				<span class="flex justify-between">
+					<p>Phí thường:</p>
+					<p class="text-center text-orange-200">{normal_price}</p>
+				</span>
+				<span class="flex justify-between">
+					<p>Giảm cho đại lý:</p>
+					<p class="text-center text-orange-200">{discount_value}</p>
+				</span>
+				<span class="flex justify-between">
+					<p>Phí thanh toán:</p>
+					<p class="text-center font-bold text-orange-400">{client_price}</p>
+				</span>
+			</div>
+		{/if}
 	</div>
 </div>
