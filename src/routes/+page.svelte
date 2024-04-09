@@ -20,6 +20,20 @@
 	$: client_price = all_prices && format_result_output(all_prices.client_price)
 </script>
 
+<div class="fixed flex w-full gap-4 bg-slate-500 p-3 text-white">
+	<div class="flex items-center justify-center">
+		<img
+			src="./pvilogo.jpg"
+			alt="" />
+	</div>
+	<p class="flex flex-col">
+		<span class="text-lg font-bold">
+			TỔNG CÔNG TY BẢO HIỂM PVI - CÔNG TY BẢO HIỂM PVI GIA ĐỊNH
+		</span>
+		<span class="text-base"
+			>Tầng 3 cao ốc Yoco - 41 Nguuyễn Thị Minh Khai, P. Bến Nghé, Q.1, Tp. HCM</span>
+	</p>
+</div>
 <div class="grid h-screen w-screen place-content-center bg-slate-500">
 	<div class="flex flex-col gap-3 rounded-lg border border-white p-4 text-white">
 		<h1 class="text-center text-2xl font-bold text-orange-400">TÍNH PHÍ XE PVI</h1>
@@ -43,7 +57,7 @@
 		</section>
 		<div class="flex flex-col gap-2">
 			<section class="flex flex-col">
-				<p class="py-2 text-center font-bold">Đăng Ký Bổ Sung</p>
+				<p class="py-2 text-center font-bold">Điều Khoản Bổ Sung</p>
 				<p>03: Bảo hiểm mất cắp bộ phận</p>
 				<p>06: Không khấu hao phụ tùng, vật tư thay mới</p>
 				<p>07: Bảo hiểm lựa chọn cơ sở sửa chữa</p>
@@ -87,5 +101,10 @@
 				</span>
 			</div>
 		{/if}
+	</div>
+	<div class="relative flex w-full justify-center">
+		<p class="absolute pt-4 text-center text-white sm:w-max">
+			LIÊN HỆ TƯ VẤN: 0916 117 735 - 0961 655 959 (zalo/viber)
+		</p>
 	</div>
 </div>
